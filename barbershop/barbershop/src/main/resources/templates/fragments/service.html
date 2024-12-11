@@ -1,0 +1,33 @@
+<div class="container" th:fragment="service" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-10">
+            <div class="section_title text-center mb-55">
+                <h3>Our Services</h3>
+                <p>Discover our wide range of professional grooming services tailored to meet your individual needs. Whether you're looking for a smooth shave, a perfect beard trim, or a fresh haircut style, our experienced barbers are here to provide you with top-notch service and a comfortable, relaxing experience.</p>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <!-- Parcours des services -->
+        <div th:each="service : ${services}" class="col-lg-4 col-md-6">
+            <div class="single_service">
+                <div class="service_thumb">
+                    <!-- Affiche l'image -->
+                    <img th:src="${service.image}" alt="Service Image">
+                </div>
+                <div class="service_content text-center">
+                    <div class="icon">
+                        <!-- Conditionally render the correct icon based on the service name -->
+                        <i th:class="${service.name == 'Smooth Shave' ? 'flaticon-shave' : (service.name == 'Beard Trimming' ? 'flaticon-barber' : 'flaticon-null')}"></i>
+                    </div>
+                    <!-- Affiche le nom du service -->
+                    <h3 th:text="${service.name}"></h3>
+                    <!-- Affiche la description -->
+                    <p th:text="${service.description}"></p>
+                    <!-- Affiche la durée et le prix -->
+                    <p th:text="'Duration: ' + ${service.duration} + ' min - Price: $' + ${service.price}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

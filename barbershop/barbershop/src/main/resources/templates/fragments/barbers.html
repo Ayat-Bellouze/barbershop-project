@@ -1,0 +1,28 @@
+<div class="container" th:fragment="barbers" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-10">
+            <div class="section_title text-center mb-55">
+                <h3>Barber</h3>
+                <p>Our professional barbers are skilled in providing a wide range of grooming services, from precision haircuts to expert beard trimming. With years of experience and a passion for quality, we ensure each client receives a personalized and exceptional experience. Whether you're in need of a quick trim or a full makeover, our team is dedicated to making you look and feel your best.</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <!-- Looping through the employees -->
+        <div th:each="employee : ${employees}" class="col-lg-4 col-md-6">
+            <div class="single_team_member">
+                <div class="team_thumb">
+                    <!-- Displaying the employee image dynamically -->
+                    <img th:src="${employee.image}" alt="Employee Image">
+                </div>
+                <div class="member_info text-center">
+                    <!-- Displaying employee's full name dynamically -->
+                    <h3 th:text="${employee.firstName} + ' ' + ${employee.lastName}"></h3>
+                    <p>Junior Barber</p> <!-- Static role or dynamic if needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
